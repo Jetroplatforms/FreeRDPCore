@@ -33,6 +33,7 @@ import com.freerdp.freerdpcore.sharedobjects.ISocketListener;
 import com.freerdp.freerdpcore.sharedobjects.SocketManager;
 
 public class GlobalApp extends Application implements LibFreeRDP.EventListener {
+	
 	private static Map<Integer, SessionState> sessionMap;
 
 	public static boolean ConnectedTo3G = false;
@@ -57,42 +58,6 @@ public class GlobalApp extends Application implements LibFreeRDP.EventListener {
 
 	// timer for disconnecting sessions after the screen was turned off
 	private static Timer disconnectTimer = null;
-	
-	// our current active connection point
-	private static ConnectionPoint connectionPoint;
-	
-	private static SocketManager socketManager;
-	
-	private static String SessionTicket = "";
-	
-	/**
-	 * get socket manager singleton instance
-	 * 
-	 * @param listener
-	 *            - socket listener for events triggering
-	 * @return - the singleton instance
-	 */
-	public static SocketManager getSocketManager(ISocketListener listener) {
-		return SocketManager.getInstance(listener);
-	}	
-	
-	/**
-	 * set the current active connection point
-	 * 
-	 */
-	public static void SetConnectionPoint(ConnectionPoint connectionPoint) {
-		GlobalApp.connectionPoint = connectionPoint;
-	}
-	
-	/**
-	 * get the current active connection point
-	 * 
-	 */	
-	public static ConnectionPoint GetConnectionPoint() {
-		return GlobalApp.connectionPoint;
-	}
-	
-		
 
 	// TimerTask for disconnecting sessions after screen was turned off
 	private static class DisconnectTask extends TimerTask {
@@ -237,7 +202,47 @@ public class GlobalApp extends Application implements LibFreeRDP.EventListener {
 	public void OnDisconnected(int instance) {
 		Log.v("LibFreeRDP", "OnDisconnected");
 	}
-
+	
+	
+	
+	/*
+	 * 
+	 *  Added by Idan
+	 *  
+	 */
+	
+	// our current active connection point
+	private static ConnectionPoint connectionPoint;
+	
+	private static String SessionTicket = "";
+	
+	/**
+	 * get socket manager singleton instance
+	 * 
+	 * @param listener
+	 *            - socket listener for events triggering
+	 * @return - the singleton instance
+	 */
+	public static SocketManager getSocketManager(ISocketListener listener) {
+		return SocketManager.getInstance(listener);
+	}
+	
+	/**
+	 * set the current active connection point
+	 * 
+	 */
+	public static void SetConnectionPoint(ConnectionPoint connectionPoint) {
+		GlobalApp.connectionPoint = connectionPoint;
+	}
+	
+	/**
+	 * get the current active connection point
+	 * 
+	 */
+	public static ConnectionPoint GetConnectionPoint() {
+		return GlobalApp.connectionPoint;
+	}
+	
 	public static String getSessionTicket() {
 		return SessionTicket;
 	}
@@ -245,4 +250,5 @@ public class GlobalApp extends Application implements LibFreeRDP.EventListener {
 	public static void setSessionTicket(String sessionTicket) {
 		SessionTicket = sessionTicket;
 	}
+	
 }
