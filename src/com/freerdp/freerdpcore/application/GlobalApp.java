@@ -28,9 +28,6 @@ import com.freerdp.freerdpcore.services.HistoryDB;
 import com.freerdp.freerdpcore.services.LibFreeRDP;
 import com.freerdp.freerdpcore.services.ManualBookmarkGateway;
 import com.freerdp.freerdpcore.services.QuickConnectHistoryGateway;
-import com.freerdp.freerdpcore.sharedobjects.ConnectionPoint;
-import com.freerdp.freerdpcore.sharedobjects.ISocketListener;
-import com.freerdp.freerdpcore.sharedobjects.SocketManager;
 
 public class GlobalApp extends Application implements LibFreeRDP.EventListener {
 	
@@ -211,37 +208,7 @@ public class GlobalApp extends Application implements LibFreeRDP.EventListener {
 	 *  
 	 */
 	
-	// our current active connection point
-	private static ConnectionPoint connectionPoint;
-	
 	private static String SessionTicket = "";
-	
-	/**
-	 * get socket manager singleton instance
-	 * 
-	 * @param listener
-	 *            - socket listener for events triggering
-	 * @return - the singleton instance
-	 */
-	public static SocketManager getSocketManager(ISocketListener listener) {
-		return SocketManager.getInstance(listener);
-	}
-	
-	/**
-	 * set the current active connection point
-	 * 
-	 */
-	public static void SetConnectionPoint(ConnectionPoint connectionPoint) {
-		GlobalApp.connectionPoint = connectionPoint;
-	}
-	
-	/**
-	 * get the current active connection point
-	 * 
-	 */
-	public static ConnectionPoint GetConnectionPoint() {
-		return GlobalApp.connectionPoint;
-	}
 	
 	public static String getSessionTicket() {
 		return SessionTicket;
