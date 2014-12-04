@@ -97,7 +97,12 @@ public class GlobalApp extends Application implements LibFreeRDP.EventListener {
 		// http://thinkandroid.wordpress.com/2010/01/24/handling-screen-off-and-screen-on-intents/
 		IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
 		filter.addAction(Intent.ACTION_SCREEN_OFF);
-		registerReceiver(new ScreenReceiver(), filter);
+		
+		// TODO:
+		// Notice I comment this receiver because it's not needed by the JetroMobileClient,
+		// the JetroMobileClient will logout from the session every time the app will get out of focus,
+		// either by turning off the screen or moving to home screen or just switching to another app.
+//		registerReceiver(new ScreenReceiver(), filter);
 	}
 
 	public static ManualBookmarkGateway getManualBookmarkGateway() {
