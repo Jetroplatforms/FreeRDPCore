@@ -26,7 +26,7 @@ import android.net.Uri;
 
 public class FreeRDPSuggestionProvider extends ContentProvider {
 
-	public static final Uri CONTENT_URI = Uri.parse("content://com.freerdp.afreerdp.services.freerdpsuggestionprovider");	
+	public static final Uri CONTENT_URI = Uri.parse("content://com.freerdp.afreerdp.services.freerdpsuggestionprovider.jetro");	
 	
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
