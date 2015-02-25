@@ -151,8 +151,7 @@ public class ManualBookmark extends BookmarkBase
 	}
 	
 	public int getPort() {
-		// TODO !! Remove this
-		return 13089; //port;
+		return port; //13089;
 	}
 	
 	public boolean getEnableGatewaySettings()
