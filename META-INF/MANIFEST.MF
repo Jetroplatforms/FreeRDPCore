@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FreeRDPCore
+Bundle-SymbolicName: FreeRDPCore
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.freerdp.freerdpcore,
+ com.freerdp.freerdpcore.application,
+ com.freerdp.freerdpcore.domain,
+ com.freerdp.freerdpcore.presentation,
+ com.freerdp.freerdpcore.services,
+ com.freerdp.freerdpcore.utils
