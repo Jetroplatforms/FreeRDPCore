@@ -285,6 +285,11 @@ public class TouchPointerView extends ImageView {
 		return curPos;
 	}
 	
+	public void MovePointer(float deltaX, float deltaY)
+	{
+		movePointer(deltaX, deltaY);
+	}
+	
 	private void movePointer(float deltaX, float deltaY) {
 		translationMatrix.postTranslate(deltaX, deltaY);
 		setImageMatrix(translationMatrix);
