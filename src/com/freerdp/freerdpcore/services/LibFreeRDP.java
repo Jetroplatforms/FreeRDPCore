@@ -154,7 +154,8 @@ public class LibFreeRDP
 		
 		BookmarkBase.AdvancedSettings advancedSettings = bookmark.getAdvancedSettings();
 		BookmarkBase.DebugSettings debugSettings = bookmark.getDebugSettings();
-		freerdp_set_advanced_settings(inst, advancedSettings.getRemoteProgram(),
+		//freerdp_set_advanced_settings(inst, advancedSettings.getRemoteProgram(),
+		freerdp_set_advanced_settings(inst, "%JDS_MOBILE%",
 				advancedSettings.getWorkDir(), debugSettings.getAsyncChannel(),
 				debugSettings.getAsyncTransport(), debugSettings.getAsyncInput(),
 				debugSettings.getAsyncUpdate());
